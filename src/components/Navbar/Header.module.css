@@ -1,0 +1,6 @@
+.item {
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: gray;
+}
