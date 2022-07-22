@@ -7,6 +7,8 @@ import {
 import Header from "./components/Navbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signup from './pages/Signup';
+import Signin from './pages/Signin/Signin';
+import Movies from './pages/Movies';
 
 function App() {
   return (
@@ -14,7 +16,8 @@ function App() {
       <Header />
       <Routes>
         <Route path='/signup' element={<Signup />}/>
-        <Route path='/signin'/>
+        <Route path='/signin' element={<Signin />}/>
+        <Route path='/movies' element={<Movies />}/>
       </Routes>
     </BrowserRouter>
   );
