@@ -14,11 +14,12 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link className={styles.item} to="/signup">Registro</Link>
-            <Link className={styles.item} to="/signin">Login</Link>
+            <Link className={styles.item} to="/login">Login</Link>
             <NavDropdown title="ABM Pelis" id="basic-nav-dropdown">
-              <Link className={styles.item} to="">Peliculas</Link>
-              <Link className={styles.item} to="">Agregar</Link>              
+              <Link className={styles.item} to="/app">Peliculas</Link>
+              <Link className={styles.item} to="/app/movies/add">Agregar</Link>              
             </NavDropdown>
+            <Link className={styles.item} to="/app/logout">Cerrar sesión</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

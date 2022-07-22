@@ -3,6 +3,8 @@ import { useFormik } from 'formik';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Input from '../../components/Input';
 import { usersServices } from '../../services/api/usersServices';
+import { Navigate } from "react-router-dom";
+import { LOGIN } from "../../config/paths";
 
 // A custom validation function. This must return an object
 // which keys are symmetrical to our values/initialValues
@@ -22,8 +24,8 @@ const validate = values => {
 
   if (!values.password) {
     errors.password = 'Campo requerido';
-  } else if (values.password.length > 10) {
-    errors.password = 'El password debe tener menos de 10 caracteres';
+  } else if (values.password.length < 6 ) {
+    errors.password = 'El password debe tener al menos 6 caracteres';
   }
 
   return errors;
@@ -48,7 +50,14 @@ const Signup = () => {
       }
 
       fetchUsuario()
-      .then(resultado => alert("Tu fue creado exitosamente!"))
+      .then(resultado => {
+        if(resultado.status !== 400){
+          alert("Tu usuario fue creado exitosamente!")
+          formik.resetForm()
+        }else{
+          alert(JSON.stringify(resultado))
+        }
+      })
       .catch(error => console.log(error)) 
     },
   });
