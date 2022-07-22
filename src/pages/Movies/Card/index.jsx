@@ -9,7 +9,7 @@ const CardItem = ({ movie }) => {
                 <Card.Body>
                     <Card.Title>{movie.title}</Card.Title>
                     <Card.Text>
-                       Género: {movie.genre.name}
+                       Género: {movie.genre?.name}
                     </Card.Text>
                     <Button variant="primary">DETALLE</Button>
                 </Card.Body>

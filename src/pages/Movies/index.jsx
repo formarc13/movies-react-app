@@ -16,7 +16,6 @@ const Movies = () => {
         fetchMovies()
         .then(res => setMovies(res.data))
         .catch(error => console.log(error))
-
     }, []);
 
     return (
