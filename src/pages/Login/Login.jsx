@@ -22,7 +22,7 @@ const validate = values => {
   return errors;
 };
 
-const Signin = () => {
+const Login = () => {
   // Pass the useFormik() hook initial form values, a validate function that will be called when
   // form values change or fields are blurred, and a submit function that will
   // be called when the form is submitted
@@ -48,7 +48,7 @@ const Signin = () => {
                 email: values.email,
                 token: resultado.data.token 
             }
-            localStorage.setItem("user", JSON.stringify(user))
+            localStorage.setItem("MOVIES_USER", JSON.stringify(user))
         }
       })
       .catch(error => console.log(error)) 
@@ -87,4 +87,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Login;
