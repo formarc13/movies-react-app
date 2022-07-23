@@ -2,7 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Input from '../../components/Input';
-import { usersServices } from '../../services/api/usersServices';
+import { useAuthContext } from '../../contexts/authContext';
 
 // A custom validation function. This must return an object
 // which keys are symmetrical to our values/initialValues
@@ -23,6 +23,7 @@ const validate = values => {
 };
 
 const Login = () => {
+  const {login} = useAuthContext()
   // Pass the useFormik() hook initial form values, a validate function that will be called when
   // form values change or fields are blurred, and a submit function that will
   // be called when the form is submitted
@@ -33,25 +34,7 @@ const Login = () => {
     },
     validate,
     onSubmit: values => {
-      const fetchLogin = async () => {
-        let response = await usersServices.autenticarUsuario(values);
-
-        return response;
-      }
-
-      fetchLogin()
-      .then(resultado => {
-        if(resultado.status !== 200){
-            alert(resultado.errors.custom.msg)
-        }else{
-            let user = {
-                email: values.email,
-                token: resultado.data.token 
-            }
-            localStorage.setItem("MOVIES_USER", JSON.stringify(user))
-        }
-      })
-      .catch(error => console.log(error)) 
+      
     },
   });
   return (

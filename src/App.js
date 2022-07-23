@@ -10,10 +10,12 @@ import Signup from './pages/Signup';
 import Login from './pages/Login/Login';
 import Movies from './pages/Movies';
 import { AuthContextProvider } from './contexts/authContext';
-import { HOME,REGISTER,LOGIN,LOGOUT,MOVIES,MOVIES_ADD,MOVIES_EDIT } from "./config/paths"
+import { APP,REGISTER,LOGIN,LOGOUT,MOVIES,MOVIES_ADD,MOVIES_EDIT } from "./config/paths"
 import Logout from './pages/Logout';
 import MoviesAdd from './pages/MoviesAdd';
 import MoviesEdit from './pages/MoviesEdit';
+import PublicRoute from './components/router/PublicRoute';
+import PrivateRoute from './components/router/PrivateRoute';
 
 function App() {
   return (
@@ -21,13 +23,13 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/'>
-            <Route path={REGISTER} element={<Signup />}/>
+          <Route path="/" element={<PublicRoute />}>
             <Route path={LOGIN} element={<Login />}/>
+            <Route path={REGISTER} element={<Signup />}/>
           </Route>
-          <Route path='/app'>
+          <Route path={APP} element={<PrivateRoute />}>
+            <Route index element={<Movies />}/>
             <Route path={LOGOUT} element={<Logout />}/>
-            <Route path={MOVIES} element={<Movies />}/>
             <Route path={MOVIES_ADD} element={<MoviesAdd />}/>
             <Route path={MOVIES_EDIT} element={<MoviesEdit />}/>
           </Route>
