@@ -42,7 +42,7 @@ const Login = () => {
       <Row className="justify-content-md-center">
         <Col md={6}>
         <h2 className='text-center mb-2 mt-2'>LOGIN</h2>
-        <Form onSubmit={formik.handleSubmit}>
+        <Form onSubmit={formik.handleSubmit} autoComplete={false}>
           <Input 
               id="email"
               label="Email"
@@ -61,8 +61,8 @@ const Login = () => {
               value={formik.values.password}
               errors={formik.errors.password}
           />
-        <Button className="mt-2" type="submit" variant="primary">Enviar</Button>
-      </Form>
+          <Button className="mt-2" type="submit" variant="primary">Enviar</Button>
+        </Form>
         </Col>
       </Row>
       

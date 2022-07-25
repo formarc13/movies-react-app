@@ -1,9 +1,10 @@
 import React from 'react';
+import MoviesForm from '../../components/MoviesForm';
 
 const MoviesAdd = () => {
     return (
         <div>
-            AGREGAR PELI
+            <MoviesForm />
         </div>
     );
 }

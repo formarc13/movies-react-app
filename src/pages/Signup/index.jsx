@@ -3,8 +3,6 @@ import { useFormik } from 'formik';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Input from '../../components/Input';
 import { usersServices } from '../../services/api/usersServices';
-import { Navigate } from "react-router-dom";
-import { LOGIN } from "../../config/paths";
 
 // A custom validation function. This must return an object
 // which keys are symmetrical to our values/initialValues
@@ -66,7 +64,7 @@ const Signup = () => {
       <Row className="justify-content-md-center">
         <Col md={6}>
         <h2 className='text-center mb-2 mt-2'>REGISTRO</h2>
-        <Form onSubmit={formik.handleSubmit}>
+        <Form onSubmit={formik.handleSubmit} autoComplete={false}>
           <Input 
               id="name"
               label="Nombre"
